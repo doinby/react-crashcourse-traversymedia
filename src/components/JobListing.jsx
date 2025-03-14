@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MapPin } from 'react-feather';
 
 export default function JobListing({
 	data: { id, title, type, description: longDesc, location, salary },
@@ -35,10 +36,9 @@ export default function JobListing({
 
 				<div className='border border-gray-100 mb-5'></div>
 
-				<div className='flex flex-col lg:flex-row justify-between mb-4'>
-					<div className='text-orange-700 mb-3'>
-						<i className='fa-solid fa-location-dot text-lg'></i>
-						{location}
+				<div className='flex flex-col lg:flex-row justify-between items-baseline mb-4'>
+					<div className='flex gap-2 text-orange-700'>
+						<MapPin size={18} /> {location}
 					</div>
 					<a
 						href='job.html'
