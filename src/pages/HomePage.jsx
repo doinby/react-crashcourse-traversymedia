@@ -1,15 +1,15 @@
 import Hero from '../components/Hero';
 import HomeCards from '../components/HomeCards';
-import JobListings from '../components/JobListings';
-import ViewAll from '../components/ViewAll';
+import JobListingsRecent from '../components/JobListingsRecent';
+import ViewAllButton from '../components/ViewAllButton';
 
 export default function HomePage() {
 	return (
 		<>
 			<Hero title='Become a React Devvv' />
 			<HomeCards />
-			<JobListings />
-			<ViewAll />
+			<JobListingsRecent />
+			<ViewAllButton />
 		</>
 	);
 }
