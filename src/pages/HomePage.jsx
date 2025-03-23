@@ -4,7 +4,7 @@ import HomeCards from '../components/HomeCards';
 import JobListings from '../components/JobListings';
 import ViewAll from '../components/ViewAll';
 
-export default function Home() {
+export default function HomePage() {
 	return (
 		<>
 			<Navbar />
