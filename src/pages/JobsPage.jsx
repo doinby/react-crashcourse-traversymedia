@@ -1,3 +1,9 @@
+import JobListingsAll from '../components/JobListingsAll';
+
 export default function JobsPage() {
-	return <>jobs</>;
+	return (
+		<>
+			<JobListingsAll />
+		</>
+	);
 }
