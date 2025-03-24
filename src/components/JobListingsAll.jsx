@@ -1,7 +1,20 @@
-import jobs from '../jobs.json';
+import { useQuery } from '@tanstack/react-query';
+import Loading from './Loading';
+import Error from './Error';
 import JobListing from './JobListing';
 
 export default function JobListingsAll() {
+	// Fetch jobs data
+	const jobsUrl = `${import.meta.env.VITE_URL}/jobs`;
+	const { isLoading, error, data } = useQuery({
+		queryKey: ['repoData'],
+		queryFn: () => fetch(jobsUrl).then((res) => res.json()),
+	});
+
+	if (isLoading) return <Loading />;
+
+	if (error) return <Error errMsg='Could not load data' />;
+
 	return (
 		<section className='bg-blue-50 px-4 py-10'>
 			<div className='container-xl lg:container m-auto'>
@@ -9,7 +22,7 @@ export default function JobListingsAll() {
 					Browse Jobs
 				</h2>
 				<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-					{jobs.map((job) => (
+					{data.map((job) => (
 						<JobListing key={job.id} data={job} />
 					))}
 				</div>
