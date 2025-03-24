@@ -8,7 +8,7 @@ export default function JobListingsRecent() {
 	const jobCount = 3;
 
 	// Fetch jobs data
-	const jobsUrl = `${import.meta.env.VITE_URL}/jobs`;
+	const jobsUrl = `${import.meta.env.VITE_URL}/jobs?_limit=${jobCount}`;
 	const { isLoading, error, data } = useQuery({
 		queryKey: ['repoData'],
 		queryFn: () => fetch(jobsUrl).then((res) => res.json()),
@@ -25,10 +25,8 @@ export default function JobListingsRecent() {
 					Most recent
 				</h2>
 				<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-					{data.map((job, idx) => {
-						if (idx < jobCount) {
-							return <JobListing key={job.id} data={job} />;
-						}
+					{data.map((job) => {
+						return <JobListing key={job.id} data={job} />;
 					})}
 				</div>
 			</div>
